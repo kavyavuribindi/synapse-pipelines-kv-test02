@@ -1,0 +1,43 @@
+{
+	"name": "TargetDB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_db_kv_test02",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"serverName": "sqlsvr-kv-test02.database.windows.net",
+				"dbName": {
+					"value": "@dataset().dbName",
+					"type": "Expression"
+				},
+				"username": "kvtest02",
+				"password": "Password123"
+			}
+		},
+		"parameters": {
+			"schemaName": {
+				"type": "string"
+			},
+			"tableName": {
+				"type": "string"
+			},
+			"dbName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schemaName",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().tableName",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

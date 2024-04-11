@@ -1,0 +1,33 @@
+{
+	"name": "ls_db_kv_test02",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"parameters": {
+			"serverName": {
+				"type": "string",
+				"defaultValue": "sqlsvr-kv-test02.database.windows.net"
+			},
+			"dbName": {
+				"type": "string",
+				"defaultValue": "db-test-dest"
+			},
+			"username": {
+				"type": "string",
+				"defaultValue": "kvtest02"
+			},
+			"password": {
+				"type": "string",
+				"defaultValue": "Password123"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Data Source=@{linkedService().serverName};Initial Catalog=@{linkedService().dbName};User ID=@{linkedService().username};Password=@{linkedService().password}"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

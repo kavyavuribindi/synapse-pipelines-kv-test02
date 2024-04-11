@@ -1,0 +1,35 @@
+{
+	"name": "ls_MyLocalDB",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"parameters": {
+			"serverName": {
+				"type": "string",
+				"defaultValue": "vm-sbx-c2s-inte\\SQLEXPRESS"
+			},
+			"dbName": {
+				"type": "string",
+				"defaultValue": "samp_db_tf"
+			},
+			"userName": {
+				"type": "string",
+				"defaultValue": "c2suser"
+			},
+			"password": {
+				"type": "string",
+				"defaultValue": "C2S@20232023!"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "Integrated Security=True;Data Source=@{linkedService().serverName};Initial Catalog=@{linkedService().dbName}",
+			"userName": "@{linkedService().userName}",
+			"password": "@{linkedService().password}"
+		},
+		"connectVia": {
+			"referenceName": "SHIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

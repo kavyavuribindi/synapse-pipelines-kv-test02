@@ -1,0 +1,66 @@
+{
+	"name": "samp_db_tf",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_MyLocalDB",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"serverName": "vm-sbx-c2s-inte\\SQLEXPRESS",
+				"dbName": {
+					"value": "@dataset().dbName",
+					"type": "Expression"
+				},
+				"userName": "c2suser",
+				"password": "C2S@20232023!"
+			}
+		},
+		"parameters": {
+			"dbName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "MVID",
+				"type": "varchar"
+			},
+			{
+				"name": "Division",
+				"type": "varchar"
+			},
+			{
+				"name": "mPlan_MVID",
+				"type": "varchar"
+			},
+			{
+				"name": "CreatedDateUTC",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ModifiedDateUTC",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "IsDeleted",
+				"type": "bit"
+			},
+			{
+				"name": "DeletedDateUTC",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "",
+			"table": ""
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
